@@ -1,7 +1,7 @@
 # R-for-pre-meds
 
 ---
-title: Setup
+Setup
 ---
 # Pre-requisites for R for Pre-Meds.
 
@@ -71,5 +71,3 @@ The final workshop of this course allows you to practice on your own data. You c
 If you have problems with installing software, there is a small amount of setup time allocated for this at the beginning of the course. Bring your laptop, and we will be happy to help.
 
 See you there!
-
-{% include links.md %}
