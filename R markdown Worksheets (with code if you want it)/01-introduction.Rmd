@@ -37,7 +37,7 @@ editor_options:
 
 The Critical Care Health Informatics Collaborative (CC-HIC) is a UK research body that has aggregated data from thousands of critical care patients. We will be using a synthetic dataset based on this cohort. These are **not** real cases, but they are made to look real.
 
-You can find this data inside the RStudio Cloud instance inside the `data` directory.
+You can find this data inside the RStudio instance inside the `data` directory.
 
 The data given contains information as  *1 row per patient*, and *1 column per variable*.
 
@@ -47,9 +47,6 @@ For a full description of the data that exists inside CC-HIC see [here](https://
 
 Additionally, we have another cohort from a breast RCT than randomised patients between local anaesthetic infiltration, and injected directly into a drain. Pain scores were observed following the intervention.
 
-#### Your own data
-
-You are also encourage to bring along your own data. We can't promise to spend time on this, but there are exercises to do along the way, and you might want to try these exercises out on your own work after the course. We will be around for the day, so feel free to approach us at any time and ask us for advice for your own data.
 
 ### Files and directories
 
@@ -83,11 +80,12 @@ It is going to be helpful to have an understanding of how files and folders (com
       - `../steve/documents/steves_script.R`
 - You can always find your current location by typing `pwd` in the console (which means "print working directory") or by typing `getwd()` in `R`.
 
-While you get used to the notion of typing the location of files on the computer, you can use a little shortcut to help out. The `file.choose()` function will allow you to pick a file on your computer, and it will tell you the full location. For now, use the function to navigate to the course data and pick out the `demographic-data.csv` file.
+While you get used to the notion of typing the location of files on the computer, you can use a little shortcut to help out. The `file.choose()` function will allow you to pick a file on your computer, and it will tell you the full location. For now, use the function to navigate to the course data and pick out the `synthetic_data_clean.csv` file.
 
 ```{r, warning=FALSE}
 library(tidyverse)
-my_file <- read_csv("./data/synthetic_data_clean.csv")
+
+my_file  <- read_csv("./data/synthetic_data_clean.csv")
 ```
 
 now we can call the `my_file` object back and see that it contains the address to the file.

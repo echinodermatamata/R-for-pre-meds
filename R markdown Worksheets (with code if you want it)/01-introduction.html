@@ -194,17 +194,13 @@ pre code {
 <div id="nearly-clean-data---cc-hic" class="section level4">
 <h4>Nearly Clean Data - CC-HIC</h4>
 <p>The Critical Care Health Informatics Collaborative (CC-HIC) is a UK research body that has aggregated data from thousands of critical care patients. We will be using a synthetic dataset based on this cohort. These are <strong>not</strong> real cases, but they are made to look real.</p>
-<p>You can find this data inside the RStudio Cloud instance inside the <code>data</code> directory.</p>
+<p>You can find this data inside the RStudio instance inside the <code>data</code> directory.</p>
 <p>The data given contains information as <em>1 row per patient</em>, and <em>1 column per variable</em>.</p>
 <p>For a full description of the data that exists inside CC-HIC see <a href="https://github.com/ropensci/cleanEHR/wiki/Data-set-1.0">here</a></p>
 </div>
 <div id="dirty-data---breast-rct" class="section level4">
 <h4>Dirty Data - Breast RCT</h4>
 <p>Additionally, we have another cohort from a breast RCT than randomised patients between local anaesthetic infiltration, and injected directly into a drain. Pain scores were observed following the intervention.</p>
-</div>
-<div id="your-own-data" class="section level4">
-<h4>Your own data</h4>
-<p>You are also encourage to bring along your own data. We can’t promise to spend time on this, but there are exercises to do along the way, and you might want to try these exercises out on your own work after the course. We will be around for the day, so feel free to approach us at any time and ask us for advice for your own data.</p>
 </div>
 </div>
 <div id="files-and-directories" class="section level3">
@@ -259,7 +255,7 @@ pre code {
 </ul></li>
 <li>You can always find your current location by typing <code>pwd</code> in the console (which means “print working directory”) or by typing <code>getwd()</code> in <code>R</code>.</li>
 </ul>
-<p>While you get used to the notion of typing the location of files on the computer, you can use a little shortcut to help out. The <code>file.choose()</code> function will allow you to pick a file on your computer, and it will tell you the full location. For now, use the function to navigate to the course data and pick out the <code>demographic-data.csv</code> file.</p>
+<p>While you get used to the notion of typing the location of files on the computer, you can use a little shortcut to help out. The <code>file.choose()</code> function will allow you to pick a file on your computer, and it will tell you the full location. For now, use the function to navigate to the course data and pick out the <code>synthetic_data_clean.csv</code> file.</p>
 <pre class="r"><code>library(tidyverse)</code></pre>
 <pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
 <pre><code>## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
@@ -269,7 +265,7 @@ pre code {
 <pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
-<pre class="r"><code>my_file &lt;- read_csv(&quot;./data/synthetic_data_clean.csv&quot;)</code></pre>
+<pre class="r"><code>my_file  &lt;- read_csv(&quot;./data/synthetic_data_clean.csv&quot;)</code></pre>
 <pre><code>## Rows: 5000 Columns: 32</code></pre>
 <pre><code>## ── Column specification ────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
