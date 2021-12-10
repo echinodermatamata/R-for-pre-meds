@@ -265,7 +265,7 @@ pre code {
 <pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
-<pre class="r"><code>my_file  &lt;- read_csv(&quot;./data/synthetic_data_clean.csv&quot;)</code></pre>
+<pre class="r"><code>cchic  &lt;- read_csv(&quot;./data/synthetic_data_clean.csv&quot;)</code></pre>
 <pre><code>## Rows: 5000 Columns: 32</code></pre>
 <pre><code>## ── Column specification ────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
@@ -276,8 +276,8 @@ pre code {
 <pre><code>## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<p>now we can call the <code>my_file</code> object back and see that it contains the address to the file.</p>
-<pre class="r"><code>View(my_file)</code></pre>
+<p>now we can call the <code>cchic</code> object back and see that it contains the address to the file.</p>
+<pre class="r"><code>View(cchic)</code></pre>
 <p>And this is what it should look like:</p>
 <pre><code>## # A tibble: 5,000 × 32
 ##    ph_abg hco3_abg temp_c temp_nc  urea creatinine        na     k    hb   wbc

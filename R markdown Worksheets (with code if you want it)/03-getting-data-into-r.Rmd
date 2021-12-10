@@ -58,7 +58,7 @@ It's strength is in it's simplicity. It only has data, no formulas, no tricks an
 
 **Exercise:** Export an .xlsx file to .csv
 
-1. Find the cleaned .xlsx file that was produced in the Excel Hell lecture and export it as a .csv file. If all else fails then we have a copy [here](https://figshare.com/s/28e6b022c0d3fe63909e).
+1. Find the cleaned .xlsx file that was produced in the Excel Hell lecture and export it as a .csv file. If all else fails then we have a copy. It's in your data folder named "RCT.csv" [here](https://figshare.com/s/28e6b022c0d3fe63909e).
 
 Once a sheet has been exported, it can be imported into R:
 
@@ -83,8 +83,9 @@ We are going import out data using `readr`  in 3 steps:
 ```{r eval=FALSE, echo=TRUE}
 install.packages("readr")       # install only needed the first time
 library(readr)                  # load the readr family functions including read_csv
-myfile <- "the/path/to/my/csv/file.csv"
-dataframename <- read_csv(myfile)
+## myfile <- "the/path/to/my/csv/file.csv"
+## dataframename <- read_csv(myfile)
+
 ```
 
 You could have done this in one step, but it would have made things harder to read. Hard to read, means difficult to remember, and we are doing our best to avoid that!
@@ -151,46 +152,6 @@ RCT$Gender
 4. Can you find out how many patients were randomised to each arm? `table(RCT$Randomisation)`
 
 5. Can you find out how many subjects there are? `nrow(RCT)`
-
-## Google Sheets
-
-We can also load data through a connection with Google Sheets. What's good about this? **Collaboration** and **live-updating**. Let's use this system to import a cleaned version of the breast RCT data we have been working on.
-
-We're going to use data in a shared sheet we've called `rct-clean`.
-
-The sheet is available [here](https://docs.google.com/spreadsheets/d/1LEZfjgeS-zjF0Jl79cFO7i2PBv0EngefZ4FUA0l1iyU/edit?usp=sharing).
-
-### The `googlesheets` library
-
-First we need the functions someone else has kindly written that allow R to talk to google sheets. You will need to install the library first.
-
-```{r, eval=FALSE, echo=TRUE}
-install.packages("googlesheets")
-```
-
-Now let's have a look at the sheets in your account. We'll use the `gs_ls()` function. 
-
-The first time you run this you will be asked to authenticate (a browser window will open and ask you to sign in to your google account). Behind the scenes R now saves a hidden file into your working directory. The next time you ever run your script, as long as you haven't moved your code to a new directory, it won't need to ask.
-
-
-``` {r, eval=FALSE, echo=TRUE}
-library(googlesheets)
-gs_ls()
-```
-You can see a list of google sheets. It is now straightforward to read these into R. Let's import the shared sheet `rct-clean`, and name it `gsheet`.
-
-``` {r, eval=FALSE, echo=TRUE}
-gsheet <- gs_title("rct-clean")
-```
-
-So far so good, but `sheet` isn't a data frame, it's just a connection to that sheet. There's one more step.
-
-``` {r, eval=FALSE, echo=TRUE}
-df <- gs_read(gsheet)
-df
-```
-
-> Bonus: The `googlesheets` library is actually doing one better than making a dataframe, and instead makes a _tibble_. Say it quickly and it sounds like _table_? It's just a fancy modern version of R's basic dataframe. You don't need to worry about the difference.
 
 
 ### Exercise: Taking a quick look at the data
