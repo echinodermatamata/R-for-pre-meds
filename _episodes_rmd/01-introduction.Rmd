@@ -1,18 +1,16 @@
 ---
-source: Rmd
 title: "Introduction into R"
+source: Rmd
 teaching: 30
 exercises: 0
-questions:
-- "Basics of the R language."
+questions: Basics of the R language.
 objectives:
-- "Be able to create variables"
-- "Join variables into a vector"
-- "Join vectors into a tibble"
-- "Perform basic tibble manipulation"
-keypoints:
-- "Data is structured and can be broken down into basic building blocks"
-editor_options: 
+- Be able to create variables
+- Join variables into a vector
+- Join vectors into a tibble
+- Perform basic tibble manipulation
+keypoints: Data is structured and can be broken down into basic building blocks
+editor_options:
   chunk_output_type: console
 ---
 

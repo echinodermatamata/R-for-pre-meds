@@ -256,7 +256,7 @@ But some data are then obscured. What about log transforming the axes?
 ```{r}
 # Turn off minor gridlines, which would otherwise be confusing
 neut_crp_scatter <- neut_crp_scatter
-  + theme(panel.grid.minor = element_blank())
+   theme(panel.grid.minor = element_blank())
 
 neut_crp_scatter + scale_x_continuous(trans='log2',
                                       breaks=scales::pretty_breaks(10))

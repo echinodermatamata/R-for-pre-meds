@@ -1,18 +1,18 @@
 ---
-source: Rmd
 title: "Data Wrangling"
+source: Rmd
 teaching: 50
 exercises: 10
 questions:
-- "What is data wrangling?"
-- "How do we wrangle data in R?"
+- What is data wrangling?
+- How do we wrangle data in R?
 objectives:
-- "Use the **tidyverse** package to build your first data pipeline"
-- "Perform basic data manipulation tasks"
-- "Inspect and summarise data"
+- Use the **tidyverse** package to build your first data pipeline
+- Perform basic data manipulation tasks
+- Inspect and summarise data
 keypoints:
-- "The process of transforming data from a raw to more usable format"
-- "Most easily using packages from the **tidyverse**"
+- The process of transforming data from a raw to more usable format
+- Most easily using packages from the **tidyverse**
 ---
 
 ## Data wrangling with dplyr
@@ -26,6 +26,7 @@ The `dplyr` package provides useful _grammar_ for simplifying data manipulation.
 
 ```{r}
 library(tidyverse)
+library(lubridate)
 df <- read_csv("./data/synthetic_data_clean.csv")
 ```
 
@@ -47,19 +48,17 @@ This _filters_ rows from the `df` data frame where `height` is greater than or e
 
 Filter **always** acts on rows, and will throw away any data that doesn't meet your request.
 
-```{r}
-include_graphics("./img/filter.png")
+
 ```
 
-A similar function called `select` acts over columns. Just want the `sex` colum?
+A similar function called `select` acts over columns. Just want the `sex` column?
 
 ```{r}
 select(df, sex)
 ```
 
-```{r}
-include_graphics("./img/select.png")
-```
+
+
 
 So `filter` chooses rows, and `select` chooses columns.
 
@@ -104,9 +103,7 @@ df %>%
   arrange(height)
 ```
 
-```{r}
-include_graphics("./img/arrange.png")
-```
+
 
 Here we see an example where we select the height, weight and sex columns, and then arrange the data by the height column.
 
@@ -133,9 +130,8 @@ df %>%
 
 We now create a new column called `bmi`.
 
-```{r}
-include_graphics("./img/mutate.png")
-```
+
+
 
 Let's combine a few of these functions to return only the data we want to see.
 
@@ -163,10 +159,10 @@ Some of these variable names are too vague for my liking.
 
 We're using the `rename` function from the dplyr package, and then 'overwriting' our existing data with the renamed data. We use the format of `rename(new_name = old_name)`. Note that we are using single `=` and not double `==` because we are assigning something, not checking for equality.
 
-```{r, eval = FALSE}
+
 df <- df %>%
   rename(new_name = old_name)
-```
+
 
 ```{r}
 df <- df %>%
@@ -181,7 +177,7 @@ Use the functions you have just learnt to:
 - Find the mean apache score for survivors and non-survivors
 - Create a new column with the highest temp from temp_c and temp_nc
 
-<a name="stringr"></a>
+
 
 ## Wrangling strings
 
@@ -224,6 +220,8 @@ df_long <- df %>%
     names_to = "lactate_time",
     values_to = "lactate_value") %>%
   select(id, lactate_time, lactate_value)
+
+head(df_long)
 ```
 
 To showcase why this was useful, we can draw a spagetti plot and view how the lactate changes over time. Don't worry about the plotting syntax for now, this will be covered in another talk.
@@ -232,11 +230,21 @@ To showcase why this was useful, we can draw a spagetti plot and view how the la
 df_long %>%
   filter(id %in% sample(df_long$id, 100, replace = FALSE)) %>%
   mutate(lactate_time = factor(lactate_time, levels = c("lactate_1hr", "lactate_6hr", "lactate_12hr"), ordered = TRUE)) %>%
-  ggplot(aes(group = id, x = lactate_time, y = lactate_value)) + geom_line(alpha = 0.2) +
+  ggplot (aes(group = id, x = lactate_time, y = lactate_value)) + geom_line(alpha = 0.2) +
   theme_classic() +
   ylab("Lactate mmol/L") +
   xlab("Time Lactate Measured") +
   ggtitle("Serial Lactate Measurements")
+  
+
+```
+
+
+
+```{r, include = FALSE}
+
+
+
 ```
 
   
